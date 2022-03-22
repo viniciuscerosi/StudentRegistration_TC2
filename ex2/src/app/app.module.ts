@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PessoaComponent } from './pessoa/pessoa.component';
+import { ListarPessoasComponent } from './listar-pessoas/listar-pessoas.component';
+import { DetalhesPessoaComponent } from './detalhes-pessoa/detalhes-pessoa.component';
+import { CadastrarPessoaComponent } from './cadastrar-pessoa/cadastrar-pessoa.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PessoaComponent
+    ListarPessoasComponent,
+    DetalhesPessoaComponent,
+    CadastrarPessoaComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    ReactiveFormsModule, 
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

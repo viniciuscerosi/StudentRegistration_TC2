@@ -1,0 +1,23 @@
+<section class="register">
+	<form class="register_form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+		<label class="label">
+			*Nome<input class="input" [ngClass]="existenteBanco ? 'is-danger' : ''" required type="text" formControlName="name" placeholder="Nome">
+		</label>
+		<label class="label">
+			*Idade<input class="input" [ngClass]="menorIdade ? 'is-danger' : ''" required type="text" formControlName="birthDate" placeholder="Data de nascimento">
+		</label>
+		<label class="label">
+			Foto<input class="input" type="text" formControlName="photo" placeholder="URL da foto">
+		</label>
+		<input class="button is-link" type="submit" value="Cadastrar">
+	</form>
+</section>
+
+<div class="notification is-danger is-dark errorNotification">
+	<div class="icon-text">
+		<span class="icon">
+			<i class="fas fa-times"></i>
+		</span>
+		<span><b>{{erroCampos}}</b></span>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<main class="grid container">
+	<table class="table is-bordered is-hoverable" *ngIf="people.length > 0">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Opção</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let person of people">
+				<td style="vertical-align: middle;">{{person.name}}</td>
+				<td (click)="getPersonByName(person.name)"><span class="button">Ver perfil</span></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<app-detalhes-pessoa *ngIf="selectedPerson" [person]="selectedPerson" [show]="true" (clearPerson)="clearPerson()"></app-detalhes-pessoa>>
+
+	<table class="table is-bordered is-hoverable" *ngIf="people.length === 0">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Opção</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="2"><p>Nenhum aluno cadastrado no momento</p></td>
+			</tr>
+		</tbody>
+	</table>
+</main>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +6,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'atividade1-tc2';
 
-  onSubmit(){
-    
+  @Input() parteMenuListar: boolean;
+  @Input() parteMenuCadastro: boolean;
+
+  showType(parteMenu: string): void {
+    if(parteMenu == "listar"){
+      this.parteMenuCadastro = false;
+      this.parteMenuListar = true;
+    }else{
+      this.parteMenuListar = false;
+      this.parteMenuCadastro = true;
+    }
   }
-  title = 'ex2';
+
+  sucessCadastro(): void{
+    document.getElementsByClassName('sucessNotification')[0].classList.add('sucessCadastro');
+    setTimeout(() => {
+      document.getElementsByClassName('sucessNotification')[0].classList.remove('sucessCadastro');
+    }, 4000);
+  }
+
+  ngOnInit(): void {
+    this.parteMenuListar = true;
+  }
 }

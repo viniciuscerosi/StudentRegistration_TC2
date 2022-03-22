@@ -1,12 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Registration</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dashboard</title>
 </head>
+
 <body>
-  <app-pessoa></app-pessoa>
+
+	<!-- ## HEADER MENU ##-->
+	<header class="header">
+		<div class="container">
+			<h1 class="title">
+				Pessoas
+			</h1>
+		</div>
+		<div class="tabs is-centered header_title">
+			<ul>
+				<li (click)="showType('listar')" [ngClass]="parteMenuListar ? 'is-active' : ''"><a>Listar Pessoas</a></li>
+				<li (click)="showType('cadastrar')" [ngClass]="parteMenuCadastro ? 'is-active' : ''"><a>Cadastrar
+						Pessoa</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<main class="grid container">
+		<app-listar-pessoas [ngClass]="parteMenuListar ? 'show' : 'hidden'"></app-listar-pessoas>
+		<app-cadastrar-pessoa [ngClass]="parteMenuCadastro ? 'show' : 'hidden'" (showType)="showType($event)" (sucessCadastro)="sucessCadastro()"></app-cadastrar-pessoa>
+	</main>
+
+	<div class="notification is-success is-dark sucessNotification">
+		<div class="icon-text">
+			<span class="icon">
+				<i class="fas fa-check-square"></i>
+			</span>
+			<span><b>Pessoa cadastrada com sucesso!</b></span>
+		</div>
+	</div>
+
 </body>
-</html>
