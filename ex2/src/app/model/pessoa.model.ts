@@ -1,5 +1,5 @@
 export interface Pessoa {
     name: string,
-    birthDate: Number;
+    birthDate: any;
     photo: string;
 }

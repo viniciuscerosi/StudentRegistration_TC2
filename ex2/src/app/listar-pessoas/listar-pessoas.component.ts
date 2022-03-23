@@ -22,6 +22,10 @@ export class ListarPessoasComponent implements OnInit {
     this.selectedPerson = this.databaseService.getPersonByName(name);
   }
 
+  removePersonByName(name: string): void{
+      this.selectedPerson = this.databaseService.removePersonByName(name);
+  }
+
   clearPerson() {
     this.selectedPerson;
   }

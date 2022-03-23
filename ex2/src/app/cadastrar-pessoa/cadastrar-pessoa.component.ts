@@ -21,7 +21,7 @@ export class CadastrarPessoaComponent  {
 	});
 
 	existenteBanco: boolean;
-	menorIdade: boolean;
+	nomeCadastrado: boolean;
 	erroCampos: string;
 	sucessMsg: string;
 	validador: number;
@@ -32,11 +32,14 @@ export class CadastrarPessoaComponent  {
 			this.person = this.registerForm.value;
 			this.validador = 0
 
-			if (this.person.birthDate < 18) {
-				this.menorIdade = true; this.validador++;
+			if (this.databaseService.getPersonByName(this.person.name)) {
+				this.existenteBanco = true; 
+				this.validador++;
+
 			} else {
-				this.menorIdade = false;
+				this.existenteBanco = false;
 			}
+		
 
 			if (this.validador === 0) {
 				if (!this.person.photo) { this.person.photo = 'https://thispersondoesnotexist.com/image'; }
@@ -46,14 +49,12 @@ export class CadastrarPessoaComponent  {
 				this.sucessCadastro.emit();
 			} else {
 				this.erroCampos = 'Os seguintes campos estão incorretos: ';
-				if(this.menorIdade){ this.erroCampos += 'Idade (Menor que 18) '; }
 				if(this.existenteBanco){ this.erroCampos += 'Nome (Já existente)'; }
 				
 				document.getElementsByClassName('errorNotification')[0].classList.add('errorCadastro');
 				setTimeout(() => { document.getElementsByClassName('errorNotification')[0].classList.remove('errorCadastro'); }, 4000);
 			}
 		} else {
-			this.menorIdade = true;
 			this.existenteBanco = true;
 			this.erroCampos = 'Campos preenchidos incorretamente!';
 

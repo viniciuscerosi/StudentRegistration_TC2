@@ -6,11 +6,10 @@ import { Pessoa } from './pessoa.model';
   providedIn: 'root',
 })
 export class DatabaseService {
+
   people: Pessoa[] = [
-    {name: "Guilherme Trujilo",birthDate: 23 ,photo: "https://thispersondoesnotexist.com/image"},
-    {name: "Vinicius Cerosi",birthDate: 18,photo: "https://thispersondoesnotexist.com/image"},
-    {name: "Tiago T.",birthDate: 20,photo: "https://thispersondoesnotexist.com/image"},
-    {name: "Andre D.",birthDate: 34,photo: "https://thispersondoesnotexist.com/image"}
+    {name: "Vincius", birthDate: 	"2020-01-10", photo: "https://engenharia360.com/wp-content/uploads/2019/05/esta-pessoa-nao-existe-engenharia-360-2.png"},
+    {name: "Paula", birthDate: "2020-01-10", photo: "https://engenharia360.com/wp-content/uploads/2019/05/esta-pessoa-nao-existe-engenharia360-4.png"},
   ];
 
   constructor() {}
@@ -26,6 +25,10 @@ export class DatabaseService {
 
   getPersonByName(name: string): Pessoa {
     return this.people.filter((todo) => todo.name=== name).pop()!;
+  }
+
+  removePersonByName(name: string): Pessoa {
+    return this.people.pop()!;
   }
 
 

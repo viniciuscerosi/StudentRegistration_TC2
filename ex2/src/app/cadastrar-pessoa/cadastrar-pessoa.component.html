@@ -4,7 +4,7 @@
 			*Nome<input class="input" [ngClass]="existenteBanco ? 'is-danger' : ''" required type="text" formControlName="name" placeholder="Nome">
 		</label>
 		<label class="label">
-			*Idade<input class="input" [ngClass]="menorIdade ? 'is-danger' : ''" required type="text" formControlName="birthDate" placeholder="Data de nascimento">
+			*Data de nascimento<input class="input" required type="date"  formControlName="birthDate" placeholder="Data de nascimento">
 		</label>
 		<label class="label">
 			Foto<input class="input" type="text" formControlName="photo" placeholder="URL da foto">

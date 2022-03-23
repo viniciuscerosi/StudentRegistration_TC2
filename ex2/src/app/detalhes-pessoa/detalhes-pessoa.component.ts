@@ -14,7 +14,7 @@ export class DetalhesPessoaComponent {
 
   closeModal(): void {
     this.show = false;
-    this.clearPerson.emit("null");
+    this.clearPerson.emit(null!);
   }
 
 }
